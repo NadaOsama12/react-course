@@ -13,7 +13,7 @@ class Navbar extends Component{
    <div className="container-fluid nav">
     <div className="row">
        <nav className={navColor}>
-    <div class="nav-wrapper">
+    <div className="nav-wrapper">
     <Link to="/" className="left">airbnb</Link>
      <ul id="nav-mobile" className="right">
       <li><Link to='/'></Link>English Us</li>
