@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import Spinner from './Spinner'
 
-function App() {
+function App(props) {
+
+  const [ email, setEmail ] = useState('')
+  const [ update, setupdatePage ] = useState(false)
+
+
+  useEffect(()=>{
+   
+   setupdatePage(true)
+   },update)
+   
+    if( update === true){
+      const myTime = setTimeout(()=>{
+      <Spinner/>
+      setupdatePage(false)    
+    },2000)
+     return  myTime
+    }else if( update === false){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+    
+      <h1>This is your email:{email}</h1>
+    <form>
+     <input type='text' onChange={(e)=>setEmail(e.target.value)} value={email}/>
+     <button type='button' className='btn btn-primary' onClick={()=>setEmail('')}>Reset</button>
+     <button className='btn btn-primary' onClick={update}>Update</button>
+    </form>
+    </> 
   );
-}
+}}
 
 export default App;
